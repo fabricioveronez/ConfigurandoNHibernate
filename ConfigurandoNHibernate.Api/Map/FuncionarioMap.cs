@@ -13,6 +13,7 @@ namespace ConfigurandoNHibernate.Api.Map
             Map(x => x.Nome).Not.Nullable();
             Map(x => x.Matricula).Not.Nullable();
             References(x => x.Setor, "SetorId").Cascade.All();
+            DiscriminateSubClassesOnColumn("TipoFuncionario");
         }
     }
 }
