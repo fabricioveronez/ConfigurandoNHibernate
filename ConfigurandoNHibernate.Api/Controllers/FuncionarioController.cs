@@ -10,6 +10,7 @@ namespace ConfigurandoNHibernate.Api.Controllers
     {
         public ActionResult Post([FromBody] Funcionario funcionario, [FromServices] ISession session)
         {
+            funcionario.Setor = session.Load<Setor>(funcionario.Setor.Id);
             session.Save(funcionario);
             return Ok();
         }
