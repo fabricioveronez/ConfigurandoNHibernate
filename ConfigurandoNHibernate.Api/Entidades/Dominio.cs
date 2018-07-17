@@ -5,17 +5,16 @@ using System.Threading.Tasks;
 
 namespace ConfigurandoNHibernate.Api.Entidades
 {
-    public class Funcionario
+    public class Dominio
     {
-        public Funcionario()
+        public Dominio()
         {
-            this.Dominios = new List<Dominio>();
+            this.Funcionarios = new List<Funcionario>();
         }
 
         public virtual int Id { get; set; }
         public virtual string Nome { get; set; }
-        public virtual string Matricula { get; set; }
-        public virtual Setor Setor { get; set; }
-        public virtual IList<Dominio> Dominios { get; set; }
+        public virtual string Descricao { get; set; }
+        public virtual IList<Funcionario> Funcionarios { get; set; }
     }
 }

@@ -14,5 +14,14 @@ namespace ConfigurandoNHibernate.Api.Controllers
             session.Save(funcionario);
             return Ok();
         }
+
+        [HttpPut("{idFuncionario}/dominio")]
+        public ActionResult AdicionarDominios([FromRoute] int idFuncionario, [FromBody] Dominio dominio, [FromServices] ISession session)
+        {
+            Funcionario func = session.Get<Funcionario>(idFuncionario);
+            func.Dominios.Add(dominio);
+            session.Save(func);
+            return Ok();
+        }
     }
 }
